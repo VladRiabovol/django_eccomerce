@@ -1,10 +1,10 @@
-from django.shortcuts import render
-from django.contrib import messages
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormMixin
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.decorators.http import require_POST
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
 from django.urls import reverse
 
 from product.models import Product, Category, Comment
@@ -81,3 +81,33 @@ class ProductDetailView(FormMixin, DetailView):
 
     def form_invalid(self, form):
         return super(ProductDetailView, self).form_invalid(form)
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('product-list')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('product-list')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})

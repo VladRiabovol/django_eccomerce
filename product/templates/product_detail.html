@@ -55,34 +55,36 @@
                 </div>
             {% endfor %}
         </div>
-        <form method="POST" enctype="multipart/form-data" class="row mt-4">
-            {% csrf_token %}
-            <div class="col-8">
-                <div class="form-floating mb-3">
-                    {{ form.subject }}
-                    {{ form.subject.label_tag }}
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="form-floating mb-3">
-                    {{ form.rate }}
-                    {{ form.rate.label_tag }}
-                </div>
-            </div>
-            <div class="col-8">
-                <div class="form-floating">
+        {% if user.is_authenticated %}
+            <form method="POST" enctype="multipart/form-data" class="row mt-4">
+                {% csrf_token %}
+                <div class="col-8">
                     <div class="form-floating mb-3">
-                        {{ form.comment }}
-                        {{ form.comment.label_tag }}
+                        {{ form.subject }}
+                        {{ form.subject.label_tag }}
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="d-grid gap-2" type="submit">
-                    <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                <div class="col-4">
+                    <div class="form-floating mb-3">
+                        {{ form.rate }}
+                        {{ form.rate.label_tag }}
+                    </div>
                 </div>
-            </div>
-        </form>
+                <div class="col-8">
+                    <div class="form-floating">
+                        <div class="form-floating mb-3">
+                            {{ form.comment }}
+                            {{ form.comment.label_tag }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="d-grid gap-2" type="submit">
+                        <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        {% endif %}
     </section>
 {% endblock %}
 {% block category_footer %}
