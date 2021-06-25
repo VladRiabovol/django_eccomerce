@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block category %}
-    <section class="container">
+    <section class="container mt-3">
         <div class="row align-items-md-stretch">
         <div class="col-md-4">
             <div class="justify-content-center d-flex w-100 h-100 align-items-center border rounded-3 shadow-lg">
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 mt-4 mt-md-0 mt-lg-0">
+        <div class="col-md-8 mt-md-0 mt-lg-0">
             <div class="h-100 p-5 text-white bg-dark rounded-3 d-block">
                 <h1 class="text-uppercase d-inline-block me-2 text-white">Electric personal transporter</h1>
                 <p>The motorised micromobility vehicle for transporting an individual at speeds that do not normally
@@ -35,13 +35,15 @@
     </section>
 {% endblock %}
 {% block content %}
-    <section class="container my-4 p-0 shadow-lg">
+    <section class="container my-3 p-0 shadow-lg">
         {% for product in page_obj %}
             {% if forloop.first %}
                 <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 m-0 p-0">
             {% endif %}
         <div class="card p-0 m-0 rounded-0 col">
-            <img src="data:image/jpg;base64, {{ product.image.base_64 }}" class="card-img-top" alt="...">
+            <a href="{% url 'product-detail' product.slug %}">
+                <img src="data:image/jpg;base64, {{ product.image.base_64 }}" class="card-img-top" alt="...">
+            </a>
             <div class="card-body">
                 <div class="card-title d-block text-center">
                     <h4 class="d-block">
