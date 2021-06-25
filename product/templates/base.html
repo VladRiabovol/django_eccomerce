@@ -9,32 +9,49 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap_v5.css' %}" rel="stylesheet">
     <style>
-        @media (max-width: 768px) {
-            .col {
-                border-bottom: 0;
-                border-left: 1px solid #d8d8d8 !important;
+        @media (max-width: 780px) {
+            .card:nth-child(n+2) {
+                border-top: 0 !important;
             }
 
-            .col:last-child {
-                border-bottom: 1px solid #d8d8d8;
+        }
+
+        @media (min-width: 780px) and (max-width: 1024px) {
+            .row .card:nth-child( 2n ) {
+                border-left: none;
+            }
+
+            .row .card:nth-child( n+3 ) {
+                border-top: none;
             }
         }
 
-        .col + .col {
-            border-left: none;
+        @media (min-width: 1024px) {
+            .card + .card {
+                border-left: none;
+            }
+
+            .row:nth-child( n+2 ) .card {
+                border-top: none;
+            }
         }
     </style>
-
 </head>
-<body>
 
+<body>
 <main>
     {% include 'partials/navigation.html' %}
-    <div class="container my-4">
+    <div class="container-fluid my-4 justify-content-center">
         {% block category %}
         {% endblock %}
 
         {% block content %}
+        {% endblock %}
+
+        {% block comments %}
+        {% endblock %}
+
+        {% block category_footer %}
         {% endblock %}
     </div>
 

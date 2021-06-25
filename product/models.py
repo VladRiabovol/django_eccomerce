@@ -37,12 +37,8 @@ class Category(models.Model):
         super(Category, self).save(*args, **kwargs)
 
 
-    # def get_absolute_url(self):
-        # return reverse('category_detail', kwargs={'slug': self.slug})
-
-
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)  # many to one relation with Category
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     description = models.TextField(max_length=255)
     image = models.ForeignKey(Image, blank=True, on_delete=models.SET_NULL, null=True)
@@ -62,11 +58,7 @@ class Product(models.Model):
 
     @property
     def get_description_as_list(self):
-        return self.description.split('\n')
-
-    @property
-    def get_category_product_count(self):
-        return
+        return [sentence.split(': ') for sentence in self.description.split('\n')]
 
 
 class Comment(models.Model):

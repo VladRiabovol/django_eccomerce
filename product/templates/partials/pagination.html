@@ -1,7 +1,7 @@
 <ul class="pagination pagination-sm">
     {% if not page_obj.has_previous %}
         <li class="page-item disabled">
-            <a class="page-link" href="#">🢢</a>
+            <span class="page-link">🢢</span>
         </li>
     {% else %}
         <li class="page-item">
@@ -14,13 +14,15 @@
                 <span class="page-link">{{ i }}</span>
             </li>
         {% else %}
-            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
         {% endif %}
     {% endfor %}
 
     {% if not page_obj.has_next %}
         <li class="page-item disabled">
-            <a class="page-link" href="#">🢡</a>
+            <span class="page-link">🢡</span>
         </li>
     {% else %}
         <li class="page-item">
