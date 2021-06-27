@@ -13,7 +13,7 @@ class OrderProduct(models.Model):
 
 
 class ShopCart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     products = models.ManyToManyField(OrderProduct, null=True, blank=True)
     total_price = models.FloatField(blank=True)
 

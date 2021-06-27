@@ -2,40 +2,41 @@
 {% block category %}
     <section class="container mt-3">
         <div class="row align-items-md-stretch">
-        <div class="col-md-4">
-            <div class="justify-content-center d-flex w-100 h-100 align-items-center border rounded-3 shadow-lg">
-                <div class="d-block text-center">
-                    <h6 class="text-dark text-uppercase mb-2">Categories</h6>
-                    {% for category in categories_list %}
-                        <p class="badge border border-primary rounded-pill mx-1">
-                            <a href="{% url 'category-list' category.slug %}" class="text-decoration-none">
-                                <i>{{ category.title }}</i>
-                            </a>
-                        </p>
-                    {% endfor %}
-                    <h6 class="text-dark text-uppercase my-2">Pagination</h6>
-                    <div aria-label="..." class="justify-content-center d-flex mt-2">
-                        {% include 'partials/pagination.html' %}
+            <div class="col-md-4">
+                <div class="justify-content-center d-flex w-100 h-100 align-items-center border rounded-3 shadow-lg">
+                    <div class="d-block text-center">
+                        <h6 class="text-dark text-uppercase mb-2">Categories</h6>
+                        {% for category in categories_list %}
+                            <p class="badge border border-primary rounded-pill mx-1">
+                                <a href="{% url 'category-list' category.slug %}" class="text-decoration-none">
+                                    <i>{{ category.title }}</i>
+                                </a>
+                            </p>
+                        {% endfor %}
+                        <h6 class="text-dark text-uppercase my-2">Pagination</h6>
+                        <div aria-label="..." class="justify-content-center d-flex mt-2">
+                            {% include 'partials/pagination.html' %}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-8 mt-md-0 mt-lg-0">
-            <div class="h-100 p-5 text-white bg-dark rounded-3 d-block">
-                <h1 class="text-uppercase d-inline-block me-2 text-white">Electric personal transporter</h1>
-                <p>The motorised micromobility vehicle for transporting an individual at speeds that do not normally
-                    exceed 25 km/h (16 mph). Include electric skateboards, kick scooters, electric bicycle and
-                    self-balancing unicycles.
-                </p>
-                <button class="btn btn-sm rounded-2 btn-secondary text-dark" type="button">
-                    <i><strong>Contact us</strong></i></button>
+            <div class="col-md-8 mt-md-0 mt-lg-0">
+                <div class="h-100 p-5 text-white bg-dark rounded-3 d-block">
+                    <h1 class="text-uppercase d-inline-block me-2 text-white">Electric personal transporter</h1>
+                    <p>The motorised micromobility vehicle for transporting an individual at speeds that do not normally
+                        exceed 25 km/h (16 mph). Include electric skateboards, kick scooters, electric bicycle and
+                        self-balancing unicycles.
+                    </p>
+                    <button class="btn btn-sm rounded-2 btn-secondary text-dark" type="button">
+                        <i><strong>Contact us</strong></i></button>
+                </div>
             </div>
-        </div>
         </div>
     </section>
 {% endblock %}
 {% block content %}
-    <section class="container my-3 p-0 shadow-lg">
+    {{ cart.content }}
+    <section class="container my-3 p-0">
         {% for product in page_obj %}
             {% if forloop.first %}
                 <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 m-0 p-0">
@@ -67,12 +68,12 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="card-footer d-flex justify-content-between w-100 align-items-center px-sm-5 px-md-1 px-lg-3">
+            <div class="card-footer d-flex justify-content-between w-100 align-items-center ps-sm-3 pe-sm-4 px-md-1 px-lg-3">
                 <div class="btn-group btn-group-sm align-items-baseline align-self-baseline" role="group"
                      aria-label="Basic example">
-                    <button type="button" class="btn btn-light text-primary text-capitalize">
-                        <strong>🛒 Add to cart</strong>
-                    </button>
+                        <a href="{% url 'cart-add' product.slug %}" class="btn btn-light text-primary text-capitalize">
+                            <strong>🛒 Add to cart</strong>
+                        </a>
                     <button type="button" class="btn btn-light text-danger">♥</button>
                 </div>
                 <h5 class="text-dark d-inline p-0 m-0 d-block align-self-auto"><strong>

@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.urls import reverse
+from django.core.exceptions import ObjectDoesNotExist
 
 from product.models import Product, Category, Comment
 from product.forms import CommentForm
@@ -13,8 +14,14 @@ from product.forms import CommentForm
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("My Product Page")
+def setup_cart(self, request, context):
+    try:
+        context['cart'] = self.request.session['cart']
+        context['cart_count'] = sum(context['cart'].values())
+    except KeyError:
+        context['cart'] = self.request.session['cart'] = {}
+        context['cart_count'] = 0
+    return context
 
 
 class CategoryListView(ListView):
@@ -31,7 +38,7 @@ class CategoryListView(ListView):
         context['category'] = Category.objects.get(slug=self.kwargs['category'])
         context['categories_list'] = Category.objects.all().exclude(slug=context['category'].slug)
         context['product_count'] = self.kwargs['count']
-        return context
+        return setup_cart(self, self.request, context)
 
 
 class ProductListView(ListView):
@@ -42,7 +49,8 @@ class ProductListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories_list'] = Category.objects.filter()
-        return context
+
+        return setup_cart(self, self.request, context)
 
 
 class ProductDetailView(FormMixin, DetailView):

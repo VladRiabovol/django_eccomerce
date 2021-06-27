@@ -20,6 +20,7 @@ from product.views import signup
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('product.urls')),
+    path('', include('order.urls')),
     path('signup/', signup, name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
