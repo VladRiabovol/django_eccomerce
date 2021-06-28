@@ -17,7 +17,9 @@
                 <a class="nav-link" href="#"><i><strong>About us</strong></i></a>
             </li>
             <li class="nav-item px-1">
-                <a class="nav-link" href="{% url 'cart-view' %}"><i><strong>Cart: {{ cart_count }}</strong></i></a>
+                <a class="nav-link {% if request.resolver_match.url_name == "cart-view" %}active disabled{% endif %}"
+                   aria-current="page" href="{% url "cart-view" %}">
+                    <i><strong>Cart: {{ cart_count }}</strong></i></a>
             </li>
         </ul>
         <form class="d-flex">

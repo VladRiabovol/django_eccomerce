@@ -15,8 +15,10 @@
                     <h1 class="display-5 fw-bold lh-1 mb-2">{{ object.title }}</h1>
                     <h1 class="display-5 fw-bold lh-1 mb-3 text-primary">{{ object.price|floatformat:-2 }}$</h1>
                     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="btn btn-primary"><strong>🛒 Add to cart</strong></button>
-                        <button type="button" class="btn btn-outline-primary"><strong>Buy now!</strong></button>
+                        <a type="button" class="btn btn-primary" href="{% url 'cart-add' object.slug 1 %}">
+                            <strong>🛒 Add to cart</strong></a>
+                        <a type="button" class="btn btn-outline-primary" href="{% url 'buy-now' product.slug %}">
+                            <strong>Buy now!</strong></a>
                         <button type="button" class="btn btn-outline-danger">♥</button>
                     </div>
                     <div class="card-text mt-4">
@@ -89,7 +91,7 @@
         {% endif %}
     </section>
 {% endblock %}
-{% block category_footer %}
+{% block footer %}
     <section class="row align-items-md-stretch mt-3">
         <div class="col-md">
             <div class="justify-content-center d-flex w-100 h-100 align-items-center border rounded-3 p-5">

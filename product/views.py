@@ -66,7 +66,7 @@ class ProductDetailView(FormMixin, DetailView):
         context['comments_list'] = Comment.objects.filter(product=self.object)
         context['categories_list'] = Category.objects.all()
         context['form'] = self.form_class()
-        return context
+        return setup_cart(self, self.request, context)
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

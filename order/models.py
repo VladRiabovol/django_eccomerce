@@ -4,26 +4,29 @@ from product.models import Product
 # Create your models here.
 
 
+class ShopCart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    total_price = models.FloatField(blank=True, null=True)
+    quantity = models.PositiveIntegerField(default=1)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    def __str__(self):
+        return f'{self.user.username}, {self.total_price}, {self.quantity}'
+
+
 class OrderProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
-    quantity = models.IntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=1)
+    cart = models.ForeignKey(ShopCart, null=True, on_delete=models.CASCADE)
+    total_price = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return self.product.title
 
-
-class ShopCart(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    products = models.ManyToManyField(OrderProduct, null=True, blank=True)
-    total_price = models.FloatField(blank=True)
-
-    def __str__(self):
-        return self.user.username + str(self.id)
-
     def save(self, *args, **kwargs):
-        products = self.products.all()
-        self.total_price = sum(item.price * item.quantity for item in products)
-        super(ShopCart, self).save(*args, **kwargs)
+        self.total_price = self.quantity * self.product.price
+        super(OrderProduct, self).save(*args, **kwargs)
 
 
 class Order(models.Model):
@@ -39,12 +42,10 @@ class Order(models.Model):
     first_name = models.CharField(max_length=10)
     last_name = models.CharField(max_length=10)
     phone = models.CharField(blank=True, max_length=20)
-    address = models.CharField(blank=True, max_length=150)
-    city = models.CharField(blank=True, max_length=20)
-    country = models.CharField(blank=True, max_length=20)
+    address = models.CharField(blank=True, max_length=250)
     status = models.CharField(max_length=10, choices=STATUS, default='New')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
-        return f'{self.user.first_name} {self.user.last_name}'
+        return f'{self.first_name} {self.last_name}, price: {self.cart.total_price} '

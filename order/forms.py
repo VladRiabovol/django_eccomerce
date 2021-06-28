@@ -1,9 +1,26 @@
 from django import forms
-from django.utils.translation import gettext_lazy as _
-
+from django.core.validators import RegexValidator
 
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
 
 
-class CartAddProductForm(forms.Form):
-    quantity = forms.IntegerField(label='Quantity')
+class OrderForm(forms.Form):
+    widget_attrs = {'class': 'form-control', 'placeholder': 'Placeholder'}
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
+                                 message="Phone number must be in the '+999999999' format")
+    first_name = forms.CharField(label="Name",
+                                 widget=forms.widgets.TextInput(
+                                     attrs={**widget_attrs, **{'id': 'fieldFirstName'}}))
+
+    last_name = forms.CharField(label="Surname",
+                                widget=forms.widgets.TextInput(
+                                    attrs={**widget_attrs, **{'id': 'fieldLastName'}}))
+
+    phone = forms.CharField(label="Phone number",
+                            validators=[phone_regex], max_length=17,
+                            widget=forms.widgets.TextInput(
+                                attrs={**widget_attrs, **{'id': 'fieldLastName'}}))
+
+    address = forms.CharField(label="Address",
+                              widget=forms.widgets.TextInput(
+                                  attrs={**widget_attrs, **{'id': 'fieldAddress'}}))

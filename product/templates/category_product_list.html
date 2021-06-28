@@ -67,13 +67,13 @@
             <div class="card-footer d-flex justify-content-between w-100 align-items-center ps-sm-3 pe-sm-4 px-md-1 px-lg-3">
                 <div class="btn-group btn-group-sm align-items-baseline align-self-baseline" role="group"
                      aria-label="Basic example">
-                    <button type="button" class="btn btn-light text-primary text-capitalize">
-                        <strong>🛒 Add to cart</strong>
-                    </button>
+                        <a href="{% url 'cart-add' product.slug 1 %}" class="btn btn-light text-primary text-capitalize">
+                            <strong>🛒 Add to cart</strong>
+                        </a>
                     <button type="button" class="btn btn-light text-danger">♥</button>
                 </div>
-                <h5 class="text-secondary d-inline p-0 m-0 d-block align-self-auto"><strong>
-                    {{ product.price|floatformat:-2 }} $</strong>
+                <h5 class="text-dark d-inline p-0 m-0 d-block align-self-auto"><strong>
+                    {{ product.price|floatformat:-2 }}$</strong>
                 </h5>
             </div>
         </div>
