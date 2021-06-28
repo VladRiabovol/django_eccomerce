@@ -82,6 +82,7 @@ class CartView(ListView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class BuyNowOrderForm(FormView):
     template_name = 'new_order.html'
     form_class = OrderForm
