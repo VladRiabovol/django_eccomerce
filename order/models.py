@@ -16,7 +16,7 @@ class ShopCart(models.Model):
 
 
 class OrderProduct(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
     quantity = models.PositiveIntegerField(default=1)
     cart = models.ForeignKey(ShopCart, null=True, on_delete=models.CASCADE)
     total_price = models.FloatField(blank=True, null=True)
@@ -48,4 +48,4 @@ class Order(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}, price: {self.cart.total_price} '
+        return f'{self.first_name} {self.last_name}, price: {self.cart.total_price}'

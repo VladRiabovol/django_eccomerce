@@ -40,6 +40,11 @@ class CartAdd(View):
 class CartRemove(View):
     def get(self, request, *args, **kwargs):
         cart = request.session['cart']
+        try:
+            cart[self.kwargs['slug']]
+        except KeyError:
+            return HttpResponseRedirect(self.request.META.get('HTTP_REFERER'))
+
         if self.kwargs['quantity'] < cart[self.kwargs['slug']]:
             cart[self.kwargs['slug']] -= self.kwargs['quantity']
         else:
@@ -55,17 +60,6 @@ class CartCleanAll(View):
         request.session.modified = True
 
         return redirect(reverse('product-list'))
-
-
-class CartGet(View):
-    def get(self, request, *args, **kwargs):
-        try:
-            cart = request.session['cart']
-            print(cart)
-        except KeyError:
-            cart = request.session['cart'] = {}
-
-        return JsonResponse(cart)
 
 
 class CartView(ListView):
@@ -136,7 +130,7 @@ class OrderFormView(FormView):
             order_product = OrderProduct(
                 product=product, cart=cart, quantity=session_cart[product.slug]
             )
-            total_price += product.price
+            total_price += product.price * session_cart[product.slug]
             total_quantity += session_cart[product.slug]
             order_product.save()
         cart.total_price = total_price

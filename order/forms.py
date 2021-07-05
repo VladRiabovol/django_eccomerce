@@ -1,8 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
 
-PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
-
 
 class OrderForm(forms.Form):
     widget_attrs = {'class': 'form-control', 'placeholder': 'Placeholder'}

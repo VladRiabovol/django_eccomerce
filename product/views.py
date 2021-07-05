@@ -6,10 +6,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.urls import reverse
+from elasticsearch_dsl import Q
 from django.core.exceptions import ObjectDoesNotExist
 
 from product.models import Product, Category, Comment
 from product.forms import CommentForm
+from product.documents import ProductDocument
 
 # Create your views here.
 
@@ -104,3 +106,22 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+class Search(ListView):
+    template_name = 'search_results.html'
+
+    def get_queryset(self):
+        search_text = self.request.GET.get("search_box", None)
+        results = ProductDocument.search().query(
+            "multi_match", query=search_text,
+            type='phrase', fields=["title", "description"]).to_queryset()
+
+        self.kwargs['search_count'] = results.count()
+        return results
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['search_query'] = self.request.GET.get("search_box", None)
+        context['search_count'] = self.kwargs['search_count']
+        return setup_cart(self, self.request, context)

@@ -5,7 +5,7 @@
         </li>
     {% else %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">🢢</a>
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">→</a>
         </li>
     {% endif %}
     {% for i in page_obj.paginator.page_range %}
@@ -22,11 +22,11 @@
 
     {% if not page_obj.has_next %}
         <li class="page-item disabled">
-            <span class="page-link">🢡</span>
+            <span class="page-link">→</span>
         </li>
     {% else %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.next_page_number }}">🢡</a>
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">→</a>
         </li>
     {% endif %}
 </ul>

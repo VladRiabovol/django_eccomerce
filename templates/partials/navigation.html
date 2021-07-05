@@ -22,8 +22,8 @@
                     <i><strong>Cart: {{ cart_count }}</strong></i></a>
             </li>
         </ul>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form type="get" action="{% url 'search-product' %}" class="d-flex">
+            <input id="search_box" name="search_box" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-sm rounded-2 btn-dark text-light" type="submit">🔍</button>
         </form>
     </div>
