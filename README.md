@@ -1,4 +1,4 @@
-# eccomerce web store
+# Eccomerce web store
 - Django
 - Bootstrap
 - Elasticsearch
