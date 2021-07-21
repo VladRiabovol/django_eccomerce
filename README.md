@@ -1,6 +1,10 @@
 # eccomerce web_store
+- Django
+- Bootstrap
+- Elasticsearch
+- Pillow
 
-## Cart
+## Cart and Search
 ![](https://media.giphy.com/media/Wgt8CNj0PvGUTAjION/giphy.gif)
 
 ## Bye now
