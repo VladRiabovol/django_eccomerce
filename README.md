@@ -1,8 +1,8 @@
 # eccomerce
 web_store
 <div>
-! [Cart]
-  <img src="https://media.giphy.com/media/Wgt8CNj0PvGUTAjION/giphy.gif" alt="alt text" width="whatever" height="whatever" align="center">
+  <h1 align="left">[Cart]<h1>
+  <img src="https://media.giphy.com/media/Wgt8CNj0PvGUTAjION/giphy.gif" alt="alt text" width="whatever" height="whatever" align="right">
 </div>
 <div>
 ! [by now]
