@@ -2,7 +2,7 @@
 web_store
 <div class="container">
   <h1 align="left">Cart
-  <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" width="whatever" height="whatever" align="right">
+  <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text">
   </h1>
 </div>
 <div>
