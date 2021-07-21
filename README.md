@@ -1,7 +1,7 @@
 # eccomerce web_store
 
 ## Cart
-![](https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif)
+![](https://media.giphy.com/media/Wgt8CNj0PvGUTAjION/giphy.gif)
 
 ## Bye now
 ![](https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif)
