@@ -6,13 +6,13 @@ web_store
 </div>
 <div>
 ! [by now]
-  <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" width="whatever" height="whatever">
+  <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" width="whatever" height="whatever" align="right">
 </div>
 <div>
 ! [add comments and rate]
-  <img src="https://media.giphy.com/media/FMsIzuEvEnVzaXEVer/giphy.gif" alt="alt text" width="whatever" height="whatever">
+  <img src="https://media.giphy.com/media/FMsIzuEvEnVzaXEVer/giphy.gif" alt="alt text" width="whatever" height="whatever" align="right">
 </div>
 <div>
 ! [pagination and ordering by category]
-  <img src="https://media.giphy.com/media/cYzSUX7jFpcLaD33i9/giphy.gif" alt="alt text" width="whatever" height="whatever">
+  <img src="https://media.giphy.com/media/cYzSUX7jFpcLaD33i9/giphy.gif" alt="alt text" width="whatever" height="whatever" align="right">
 </div>
