@@ -9,5 +9,5 @@
 ## Add comments and rate
 ![](https://media.giphy.com/media/FMsIzuEvEnVzaXEVer/giphy.gif)
 
-## 11
+## Pagination
 ![](https://media.giphy.com/media/cYzSUX7jFpcLaD33i9/giphy.gif)
