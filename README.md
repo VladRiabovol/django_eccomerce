@@ -4,13 +4,13 @@
 - Elasticsearch
 - Pillow
 
-## Cart and Search
+## Cart and search
 ![](https://media.giphy.com/media/Wgt8CNj0PvGUTAjION/giphy.gif)
 
-## Bye now
+## Buy now
 ![](https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif)
 
-## Add comments and rate
+## Add comments and rates
 ![](https://media.giphy.com/media/FMsIzuEvEnVzaXEVer/giphy.gif)
 
 ## Pagination
