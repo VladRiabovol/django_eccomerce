@@ -1,9 +1,8 @@
 # eccomerce
-web_store
+## web_store
 <div class="container">
-  <h1 align="left">Cart
-  <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" align="right">
-  </h1>
+## Cart
+ - <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" align="right">
 </div>
 <div class="container">
   <h1 align="left">Bye now
