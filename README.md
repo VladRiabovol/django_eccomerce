@@ -3,7 +3,7 @@
 ## Cart
 - <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" align="right">
 
-##Bye now
+## Bye now
 - <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" align="right">
  
 </div>
