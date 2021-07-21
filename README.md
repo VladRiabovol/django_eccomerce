@@ -1,6 +1,6 @@
 # eccomerce
 web_store
-<div>
+<div class="container">
   <h1 align="left">Cart</h1>
   <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" width="whatever" height="whatever" align="right">
 </div>
