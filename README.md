@@ -1,12 +1,18 @@
 # eccomerce
 web_store
 <div>
-! [Cart] (https://media.giphy.com/media/Wgt8CNj0PvGUTAjION/giphy.gif)
+! [Cart]
   <img src="https://media.giphy.com/media/Wgt8CNj0PvGUTAjION/giphy.gif" alt="alt text" width="whatever" height="whatever">
 </div>
-! [by now] (https://gph.is/g/aXNK8DD)
+<div>
+! [by now]
   <img src="https://media.giphy.com/media/qnf0iqSQTHzwFqTQIq/giphy.gif" alt="alt text" width="whatever" height="whatever">
-! [add comments and rate] (https://gph.is/g/Zn8AOeA)
+</div>
+<div>
+! [add comments and rate]
   <img src="https://media.giphy.com/media/FMsIzuEvEnVzaXEVer/giphy.gif" alt="alt text" width="whatever" height="whatever">
-! [pagination and ordering by category] (https://gph.is/g/EJXdyze)
+</div>
+<div>
+! [pagination and ordering by category]
   <img src="https://media.giphy.com/media/cYzSUX7jFpcLaD33i9/giphy.gif" alt="alt text" width="whatever" height="whatever">
+</div>
